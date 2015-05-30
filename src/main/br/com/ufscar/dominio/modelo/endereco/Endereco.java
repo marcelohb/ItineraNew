@@ -1,4 +1,5 @@
-package br.com.ufscar.dominio.modelo;
+package br.com.ufscar.dominio.modelo.endereco;
+
 
 public class Endereco {
 	

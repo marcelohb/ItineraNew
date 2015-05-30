@@ -1,8 +1,11 @@
-package br.com.ufscar.dominio.modelo;
+package br.com.ufscar.dominio.modelo.despesa;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import br.com.ufscar.dominio.modelo.despesa.TipoDespesa;
+import br.com.ufscar.dominio.modelo.despesa.TipoDespesaId;
 
 public class TipoDespesaTest {
 

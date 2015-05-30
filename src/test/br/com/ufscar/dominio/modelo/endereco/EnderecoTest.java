@@ -1,8 +1,12 @@
-package br.com.ufscar.dominio.modelo;
+package br.com.ufscar.dominio.modelo.endereco;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import br.com.ufscar.dominio.modelo.endereco.CEP;
+import br.com.ufscar.dominio.modelo.endereco.Endereco;
+import br.com.ufscar.dominio.modelo.endereco.TipoLogradouro;
 
 public class EnderecoTest {
 

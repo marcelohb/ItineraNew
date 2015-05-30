@@ -1,4 +1,4 @@
-package br.com.ufscar.dominio.modelo;
+package br.com.ufscar.dominio.modelo.despesa;
 
 public class TipoDespesaId {
 

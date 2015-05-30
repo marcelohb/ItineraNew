@@ -1,8 +1,11 @@
-package br.com.ufscar.dominio.modelo;
+package br.com.ufscar.dominio.modelo.telefone;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import br.com.ufscar.dominio.modelo.telefone.Telefone;
+import br.com.ufscar.dominio.modelo.telefone.TipoTelefone;
 
 public class TelefoneTest {
 

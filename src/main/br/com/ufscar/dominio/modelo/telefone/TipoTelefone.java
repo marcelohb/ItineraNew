@@ -1,4 +1,4 @@
-package br.com.ufscar.dominio.modelo;
+package br.com.ufscar.dominio.modelo.telefone;
 
 public enum TipoTelefone {
 	CELULAR('C'),
