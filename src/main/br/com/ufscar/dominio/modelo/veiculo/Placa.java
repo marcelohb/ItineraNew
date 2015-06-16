@@ -1,10 +1,19 @@
 package br.com.ufscar.dominio.modelo.veiculo;
 
-import java.util.regex.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
+import javax.persistence.Embeddable;
+
+@Embeddable
 public class Placa {
 	
+//	private Long placaId;
+	
 	private String placa;
+	
+	private Placa() {
+	}
 	
 	public Placa(String placa) {
 		this.placa = placa.toUpperCase();
@@ -22,6 +31,22 @@ public class Placa {
 	public String placaFormatada() {
 		String placaFormatada = this.placa.substring(0, 3) + "-" + this.placa.substring(3, 7);
 		return placaFormatada;
+	}
+
+//	public Long getPlacaId() {
+//		return placaId;
+//	}
+//
+//	public void setPlacaId(Long id) {
+//		this.placaId = id;
+//	}
+
+	public String getPlaca() {
+		return placa;
+	}
+
+	public void setPlaca(String placa) {
+		this.placa = placa;
 	}
 
 	@Override

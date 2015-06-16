@@ -1,16 +1,69 @@
 package br.com.ufscar.dominio.modelo.categoriaVeiculo;
 
+import javax.persistence.Embeddable;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity(name="CATEGORIA_VEICULO")
+@Embeddable
 public class CategoriaVeiculo {
 
+	@Id
+	@GeneratedValue
+	private Long idCategoria;
+	
+	@Embedded
 	private CategoriaVeiculoId categoriaVeiculoId;
+	
 	private String descricao;
 	private char ehReboque;
 	
-	public CategoriaVeiculo(CategoriaVeiculoId id, String descricao, char ehReboque) {
-		this.categoriaVeiculoId = id;
+	public CategoriaVeiculo(CategoriaVeiculoId categoriaVeiculoId, String descricao, char ehReboque) {
+		this.categoriaVeiculoId = categoriaVeiculoId;
 		this.descricao = descricao;
 		this.ehReboque = ehReboque;
 	}
+
+	public Long getIdCategoria() {
+		return idCategoria;
+	}
+
+	public void setIdCategoria(Long idCategoria) {
+		this.idCategoria = idCategoria;
+	}
+
+	public CategoriaVeiculoId categoriaVeiculoId() {
+		return this.categoriaVeiculoId;
+	}
+
+	public CategoriaVeiculoId getCategoriaVeiculoId() {
+		return categoriaVeiculoId;
+	}
+
+	public void setCategoriaVeiculoId(CategoriaVeiculoId categoriaVeiculoId) {
+		this.categoriaVeiculoId = categoriaVeiculoId;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	public char getEhReboque() {
+		return ehReboque;
+	}
+
+	public void setEhReboque(char ehReboque) {
+		this.ehReboque = ehReboque;
+	}
+
+	@SuppressWarnings("unused")
+	private CategoriaVeiculo(){}
 
 	@Override
 	public int hashCode() {
