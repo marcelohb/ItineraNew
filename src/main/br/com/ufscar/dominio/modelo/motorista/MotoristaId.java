@@ -5,20 +5,20 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class MotoristaId {
 	
-	private String idMotoristaId;
+	private String motoristaId;
 
 	public MotoristaId(String id) {
-		this.idMotoristaId = id;
+		this.motoristaId = id;
 	}
 	
-	public MotoristaId() {}
+	private MotoristaId() {}
 	
 	public String getId() {
-		return idMotoristaId;
+		return motoristaId;
 	}
 
 	public void setId(String id) {
-		this.idMotoristaId = id;
+		this.motoristaId = id;
 	}
 
 	@Override
@@ -26,7 +26,7 @@ public class MotoristaId {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result
-				+ ((idMotoristaId == null) ? 0 : idMotoristaId.hashCode());
+				+ ((motoristaId == null) ? 0 : motoristaId.hashCode());
 		return result;
 	}
 
@@ -39,10 +39,10 @@ public class MotoristaId {
 		if (getClass() != obj.getClass())
 			return false;
 		MotoristaId other = (MotoristaId) obj;
-		if (idMotoristaId == null) {
-			if (other.idMotoristaId != null)
+		if (motoristaId == null) {
+			if (other.motoristaId != null)
 				return false;
-		} else if (!idMotoristaId.equals(other.idMotoristaId))
+		} else if (!motoristaId.equals(other.motoristaId))
 			return false;
 		return true;
 	}

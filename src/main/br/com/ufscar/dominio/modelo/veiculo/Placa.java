@@ -8,8 +8,6 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class Placa {
 	
-//	private Long placaId;
-	
 	private String placa;
 	
 	private Placa() {
@@ -32,14 +30,6 @@ public class Placa {
 		String placaFormatada = this.placa.substring(0, 3) + "-" + this.placa.substring(3, 7);
 		return placaFormatada;
 	}
-
-//	public Long getPlacaId() {
-//		return placaId;
-//	}
-//
-//	public void setPlacaId(Long id) {
-//		this.placaId = id;
-//	}
 
 	public String getPlaca() {
 		return placa;
