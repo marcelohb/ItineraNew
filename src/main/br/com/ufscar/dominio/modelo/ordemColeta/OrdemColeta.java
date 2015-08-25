@@ -11,6 +11,7 @@ import br.com.ufscar.dominio.modelo.motorista.MotoristaId;
 import br.com.ufscar.dominio.modelo.veiculo.Placa;
 
 @Entity
+//@Access(AccessType.FIELD)
 public class OrdemColeta {
 	
 	@Id
@@ -28,8 +29,11 @@ public class OrdemColeta {
 //	@Embedded
 	private MotoristaId motorista;
 //	@Embedded
+//	@Column(name="ORIGEM",insertable=false, updatable=false)
 	private EmpresaId origem;
-//	private EmpresaId destino;
+//	@Embedded
+//	@Column(name="DESTINO",insertable=false, updatable=false)
+	private EmpresaId destino;
 	
 	public OrdemColeta(OrdemColetaId ordemColetaId, Date data,
 			Double valorUnitario, Double quantidade, String numeroNF, Placa placaVeiculo,
@@ -42,8 +46,11 @@ public class OrdemColeta {
 		this.veiculo = placaVeiculo;
 		this.motorista = motorista;
 		this.origem = origem;
-//		this.destino = destino;
+		this.destino = destino;
 	}
+	
+	@SuppressWarnings("unused")
+	private OrdemColeta() {}
 
 	public OrdemColetaId getOrdemColetaId() {
 		return ordemColetaId;
@@ -125,12 +132,12 @@ public class OrdemColeta {
 		this.origem = origem;
 	}
 
-//	public EmpresaId getDestino() {
-//		return destino;
-//	}
-//
-//	public void setDestino(EmpresaId destino) {
-//		this.destino = destino;
-//	}
+	public EmpresaId getDestino() {
+		return destino;
+	}
+
+	public void setDestino(EmpresaId destino) {
+		this.destino = destino;
+	}
 
 }

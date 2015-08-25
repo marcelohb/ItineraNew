@@ -1,18 +1,23 @@
 package br.com.ufscar.dominio.modelo.empresa;
 
+import javax.persistence.Access;
+import javax.persistence.AccessType;
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 @Embeddable
+@Access(AccessType.FIELD)
 public class EmpresaId {
 
-	String empresaId;
+	@Column(name="EMPRESA_ID", insertable=false, updatable=false)
+	private String empresaId;
 	
 	public EmpresaId(String id) {
 		this.empresaId = id;
 	}
 	
-	private EmpresaId() {
-	}
+	@SuppressWarnings("unused")
+	private EmpresaId() {}
 
 	@Override
 	public int hashCode() {
