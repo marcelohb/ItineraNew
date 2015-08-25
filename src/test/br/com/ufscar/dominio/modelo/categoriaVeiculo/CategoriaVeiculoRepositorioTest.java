@@ -1,8 +1,6 @@
 package br.com.ufscar.dominio.modelo.categoriaVeiculo;
 
-import static org.junit.Assert.*;
-
-import javax.persistence.EntityManager;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -12,9 +10,6 @@ import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import br.com.ufscar.Application;
-import br.com.ufscar.dominio.modelo.categoriaVeiculo.CategoriaVeiculo;
-import br.com.ufscar.dominio.modelo.categoriaVeiculo.CategoriaVeiculoId;
-import br.com.ufscar.dominio.modelo.categoriaVeiculo.CategoriaVeiculoRepositorio;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = Application.class)
@@ -22,9 +17,6 @@ public class CategoriaVeiculoRepositorioTest {
 
 	@Autowired
 	CategoriaVeiculoRepositorio repositorio;
-	
-	@Autowired
-	private EntityManager em;
 	
 	@Before
 	public void setUp() {

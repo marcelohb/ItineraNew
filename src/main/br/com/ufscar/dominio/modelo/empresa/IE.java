@@ -1,28 +1,32 @@
 package br.com.ufscar.dominio.modelo.empresa;
 
+import javax.persistence.Embeddable;
+
+@Embeddable
 public class IE {
 	
-	private String id;
+	private String ie;
 
-	public IE(String id) {
-		this.id = id;
+	public IE(String ie) {
+		this.ie = ie;
 	}
 	
+	@SuppressWarnings("unused")
 	private IE() {}
 
-	public String getId() {
-		return id;
+	public String getIE() {
+		return ie;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setIE(String ie) {
+		this.ie = ie;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((ie == null) ? 0 : ie.hashCode());
 		return result;
 	}
 
@@ -35,10 +39,10 @@ public class IE {
 		if (getClass() != obj.getClass())
 			return false;
 		IE other = (IE) obj;
-		if (id == null) {
-			if (other.id != null)
+		if (ie == null) {
+			if (other.ie != null)
 				return false;
-		} else if (!id.equals(other.id))
+		} else if (!ie.equals(other.ie))
 			return false;
 		return true;
 	}

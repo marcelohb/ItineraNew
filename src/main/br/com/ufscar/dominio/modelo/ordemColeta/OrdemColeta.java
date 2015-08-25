@@ -2,7 +2,6 @@ package br.com.ufscar.dominio.modelo.ordemColeta;
 
 import java.util.Date;
 
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -30,7 +29,7 @@ public class OrdemColeta {
 	private MotoristaId motorista;
 //	@Embedded
 	private EmpresaId origem;
-	private EmpresaId destino;
+//	private EmpresaId destino;
 	
 	public OrdemColeta(OrdemColetaId ordemColetaId, Date data,
 			Double valorUnitario, Double quantidade, String numeroNF, Placa placaVeiculo,
@@ -43,7 +42,7 @@ public class OrdemColeta {
 		this.veiculo = placaVeiculo;
 		this.motorista = motorista;
 		this.origem = origem;
-		this.destino = destino;
+//		this.destino = destino;
 	}
 
 	public OrdemColetaId getOrdemColetaId() {
@@ -126,12 +125,12 @@ public class OrdemColeta {
 		this.origem = origem;
 	}
 
-	public EmpresaId getDestino() {
-		return destino;
-	}
-
-	public void setDestino(EmpresaId destino) {
-		this.destino = destino;
-	}
+//	public EmpresaId getDestino() {
+//		return destino;
+//	}
+//
+//	public void setDestino(EmpresaId destino) {
+//		this.destino = destino;
+//	}
 
 }

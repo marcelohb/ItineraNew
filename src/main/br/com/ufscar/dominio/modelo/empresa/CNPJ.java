@@ -1,5 +1,8 @@
 package br.com.ufscar.dominio.modelo.empresa;
 
+import javax.persistence.Embeddable;
+
+@Embeddable
 public class CNPJ {
 	
 	private String cnpj;
@@ -7,6 +10,9 @@ public class CNPJ {
 	public CNPJ(String cnpj) {
 		this.cnpj = cnpj;
 	}
+	
+	@SuppressWarnings("unused")
+	private CNPJ(){}
 
 	public String getCnpj() {
 		return cnpj;

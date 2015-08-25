@@ -1,22 +1,28 @@
 package br.com.ufscar.dominio.modelo.empresa;
 
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 import br.com.ufscar.dominio.modelo.MunicipioId;
 
+@Entity
 public class Empresa {
 
 	@Id
 	@GeneratedValue
 	private Long idEmpresa;
-	
+	@Embedded
 	private EmpresaId empresaId;
+	@Embedded
 	private CNPJ cnpj;
+	@Embedded
 	private IE ie;
 	private String nomeFantasia;
 	private String razaoSocial;
 	private TipoEmpresa tipoEmpresa;
+	@Embedded
 	private MunicipioId municipio;
 	
 	public Empresa(EmpresaId empresaId, CNPJ cnpj, IE ie, String nomeFantasia,
@@ -28,6 +34,10 @@ public class Empresa {
 		this.razaoSocial = razaoSocial;
 		this.tipoEmpresa = tipoEmpresa;
 		this.municipio = municipio;
+	}
+
+	public void alterarTipo(TipoEmpresa tipoEmpresa) {
+		this.tipoEmpresa = tipoEmpresa;
 	}
 
 	public Long getIdEmpresa() {

@@ -12,6 +12,10 @@ public enum TipoEmpresa {
 		this.tipo = tipo;
 	}
 	
+	public char tipo() {
+		return this.tipo;
+	}
+	
 	public static TipoEmpresa obterPeloTipo(char tipo) {
 		switch (tipo) {
 		case 'F':
