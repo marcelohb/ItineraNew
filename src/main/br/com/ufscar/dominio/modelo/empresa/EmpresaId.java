@@ -16,6 +16,10 @@ public class EmpresaId {
 		this.empresaId = id;
 	}
 	
+	public String id() {
+		return this.id();
+	}
+	
 	@SuppressWarnings("unused")
 	private EmpresaId() {}
 
