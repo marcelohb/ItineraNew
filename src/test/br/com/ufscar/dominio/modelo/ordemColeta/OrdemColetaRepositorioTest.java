@@ -104,5 +104,6 @@ public class OrdemColetaRepositorioTest {
 	public void buscarPeloId() {
 		OrdemColeta oc = repositorio.findByOrdemColetaId(new OrdemColetaId("1"));
 		assertEquals(new OrdemColetaId("1"), oc.getOrdemColetaId());
+		assertEquals(new EmpresaId("444"), oc.getOrigem());
 	}
 }

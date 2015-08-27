@@ -51,7 +51,7 @@ public class FechamentoTest {
 				"1238128", new Placa("AAA3322"), new MotoristaId(
 						"999"), new EmpresaId("444"), new EmpresaId("555"));
 		ordemColeta2 = new OrdemColeta(new OrdemColetaId("2"),
-				new Date(2015, 8, 1), 14.5, 2.0,
+				new Date(2015, 8, 1), 10.5, 2.0,
 				"1238128", new Placa("AAA3322"), new MotoristaId(
 						"999"), new EmpresaId("444"), new EmpresaId("555"));
 		ordemColeta3 = new OrdemColeta(new OrdemColetaId("3"),
@@ -63,9 +63,9 @@ public class FechamentoTest {
 		repositorio.save(ordemColeta3);
 		
 		repoDespesa.deleteAll();
-		cafe = new Despesa(new DespesaId("111"), new BigDecimal(1), new Date(2015,8,10), new MotoristaId("999"), new PlanoDeContasId("888"), "POSTO DO JOAO", 5.50, 2.0, 'A');
-		almoco = new Despesa(new DespesaId("222"), new BigDecimal(2), new Date(2015,8,30), new MotoristaId("999"), new PlanoDeContasId("888"), "CHURRASCARIA", 70.00, 1.0, 'A');
-		jantar = new Despesa(new DespesaId("333"), new BigDecimal(3), new Date(2015,8,1), new MotoristaId("987"), new PlanoDeContasId("888"), "PIZZARIA", 29.50, 1.0, 'A');
+		cafe = new Despesa(new DespesaId("111"), new BigDecimal(1), new Date(2015,8,10), new MotoristaId("999"), new PlanoDeContasId("888"), "POSTO DO JOAO", 1.0, 2.0, 'A');
+		almoco = new Despesa(new DespesaId("222"), new BigDecimal(2), new Date(2015,8,30), new MotoristaId("999"), new PlanoDeContasId("888"), "CHURRASCARIA", 1.00, 1.0, 'A');
+		jantar = new Despesa(new DespesaId("333"), new BigDecimal(3), new Date(2015,8,1), new MotoristaId("987"), new PlanoDeContasId("888"), "PIZZARIA", 1.50, 1.0, 'A');
 		repoDespesa.save(cafe);
 		repoDespesa.save(almoco);
 		repoDespesa.save(jantar);
@@ -86,6 +86,26 @@ public class FechamentoTest {
 	}
 	
 	@Test
+	public void totalDespesasMensal() {
+		Double totalDespesa = 0.0;
+		List<Despesa> despesas = repoDespesa.findByDataBetween(new Date(2015,8,1), new Date(2015,8,31));
+		for (Despesa despesa : despesas) {
+			totalDespesa += despesa.getQuantidade() * despesa.getValor();
+		}
+		assertEquals(0,  totalDespesa.compareTo(4.50));
+	}
+	
+	@Test
+	public void totalOrdemColetaMensal() {
+		Double totalOrdens = 0.0;
+		List<OrdemColeta> ordensDeColetas = repositorio.findByDataBetween(new Date(2015,8,1), new Date(2015,8,31));
+		for (OrdemColeta ordemColeta : ordensDeColetas) {
+			totalOrdens += ordemColeta.getQuantidade() * ordemColeta.getValorUnitario();
+		}
+		assertEquals(0, totalOrdens.compareTo(37.0));
+	}
+	
+	@Test
 	public void realizarFechamentoMensal() {
 		Double totalOrdens = 0.0;
 		Double totalDespesa = 0.0;
@@ -101,8 +121,8 @@ public class FechamentoTest {
 			totalDespesa += despesa.getQuantidade() * despesa.getValor();
 		}
 		total = totalOrdens - totalDespesa;
-		//45 - 110.5
-		assertEquals(0, total.compareTo(65.5));
+		//37 - 4.5
+		assertEquals(0, total.toString());
 		
 	}
 

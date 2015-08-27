@@ -9,7 +9,6 @@ import javax.persistence.Embeddable;
 @Access(AccessType.FIELD)
 public class EmpresaId {
 
-	@Column(name="EMPRESA_ID", insertable=false, updatable=false)
 	private String empresaId;
 	
 	public EmpresaId(String id) {

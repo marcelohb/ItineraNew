@@ -2,38 +2,33 @@ package br.com.ufscar.dominio.modelo.ordemColeta;
 
 import java.util.Date;
 
+import javax.persistence.AttributeOverride;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.validation.OverridesAttribute;
 
 import br.com.ufscar.dominio.modelo.empresa.EmpresaId;
 import br.com.ufscar.dominio.modelo.motorista.MotoristaId;
 import br.com.ufscar.dominio.modelo.veiculo.Placa;
 
 @Entity
-//@Access(AccessType.FIELD)
 public class OrdemColeta {
 	
 	@Id
 	@GeneratedValue
 	private Long idOrdemColeta;
-//	@Embedded
 	private OrdemColetaId ordemColetaId;
 	private Date data;
 	private Double valorUnitario;
 	private Double quantidade;
 	private Double distancia;
 	private String numeroNotaFiscal;
-//	@Embedded
 	private Placa veiculo;
-//	@Embedded
 	private MotoristaId motorista;
-//	@Embedded
-//	@Column(name="ORIGEM",insertable=false, updatable=false)
+	@AttributeOverride(name="empresaId", column=@Column(name="ORIGEM"))
 	private EmpresaId origem;
-//	@Embedded
-//	@Column(name="DESTINO",insertable=false, updatable=false)
+	@AttributeOverride(name="empresaId", column=@Column(name="DESTINO"))
 	private EmpresaId destino;
 	
 	public OrdemColeta(OrdemColetaId ordemColetaId, Date data,
