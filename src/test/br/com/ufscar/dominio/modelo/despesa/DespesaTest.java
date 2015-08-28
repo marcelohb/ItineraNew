@@ -27,7 +27,7 @@ public class DespesaTest {
 		assertEquals(almoco.getDespesaId(), jantar.getDespesaId());
 		assertEquals(almoco.getNumeroDoDocumento(), jantar.getNumeroDoDocumento());
 		assertEquals(almoco.getData().getDate(),jantar.getData().getDate());
-		assertEquals(almoco.getMotoristaId(), jantar.getMotoristaId());
+		assertEquals(almoco.getMotorista(), jantar.getMotorista());
 		assertEquals(almoco.getPlanoDeContasId(), jantar.getPlanoDeContasId());
 		assertEquals(almoco.getLocal(), jantar.getLocal());
 		assertEquals(almoco.getValor(), jantar.getValor());

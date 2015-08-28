@@ -65,14 +65,14 @@ public class DespesaRepositorioTest {
 	
 	@Test
 	public void buscarDespesasDoMotorista() {
-		List<Despesa> despesasDoMarcelo = repositorio.findByMotoristaId(new MotoristaId("999"));
+		List<Despesa> despesasDoMarcelo = repositorio.findByMotorista(new MotoristaId("999"));
 		assertEquals(2, despesasDoMarcelo.size());
 	}
 	
 	@Test
 	public void totalDeDespesasDoMotorista() {
 		Double total = 0.0;
-		List<Despesa> despesasDoMarcelo = repositorio.findByMotoristaId(new MotoristaId("999"));
+		List<Despesa> despesasDoMarcelo = repositorio.findByMotorista(new MotoristaId("999"));
 		for (Despesa despesa : despesasDoMarcelo) {
 			total += despesa.getValor();
 		}
@@ -82,7 +82,7 @@ public class DespesaRepositorioTest {
 	@Test
 	public void quantidadeDeDespesasDoMotorista() {
 		Double quantidade = 0.0;
-		List<Despesa> despesasDoJoao = repositorio.findByMotoristaId(new MotoristaId("987"));
+		List<Despesa> despesasDoJoao = repositorio.findByMotorista(new MotoristaId("987"));
 		for (Despesa despesa : despesasDoJoao) {
 			quantidade += despesa.getQuantidade();
 		}
@@ -97,5 +97,15 @@ public class DespesaRepositorioTest {
 			quantidade += 1;
 		}
 		assertEquals(1, quantidade);
+	}
+	
+	@Test
+	public void calcularDespesasPorMotoristaEData() {
+		Double total = 0.0;
+		List<Despesa> despesasDoMarcelo = repositorio.findByMotoristaAndDataBetween(new MotoristaId("987"), new Date(2015,5,1), new Date(2015,6,30));
+		for (Despesa despesa : despesasDoMarcelo) {
+			total += despesa.getValor();
+		}
+		assertEquals(new Double(29.5), total);
 	}
 }

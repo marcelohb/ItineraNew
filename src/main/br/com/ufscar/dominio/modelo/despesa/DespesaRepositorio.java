@@ -11,8 +11,10 @@ public interface DespesaRepositorio extends CrudRepository<Despesa, Long> {
 	
 	List<Despesa> findByDespesaId(DespesaId id);
 
-	List<Despesa> findByMotoristaId(MotoristaId motoristaId);
+	List<Despesa> findByMotorista(MotoristaId motoristaId);
 
 	List<Despesa> findByDataBetween(Date dataInicial, Date dataFinal);
+
+	List<Despesa> findByMotoristaAndDataBetween(MotoristaId motorista, Date dataInicial, Date dataFinal);
 
 }

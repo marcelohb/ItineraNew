@@ -99,6 +99,34 @@ public class OrdemColetaRepositorioTest {
 		assertEquals(0,total.compareTo(new Double(15)));
 		assertEquals(0,quantidadeDeItens.compareTo(new Double(3)));
 	}
+	
+	@Test
+	public void calcularTotalPorMotorista() {
+
+		Double total = 0.0;
+		Double quantidadeDeItens = 0.0;
+		List<OrdemColeta> ocs = repositorio.findByMotorista(new MotoristaId("997"));
+		for (OrdemColeta ordemColeta : ocs) {
+			total += ordemColeta.getValorUnitario() * ordemColeta.getQuantidade();
+			quantidadeDeItens += ordemColeta.getQuantidade();
+		}
+		assertEquals(0,total.compareTo(new Double(15)));
+		assertEquals(0,quantidadeDeItens.compareTo(new Double(3)));
+	}
+	
+	@Test
+	public void calcularTotalPorMotoristaEPeriodo() {
+
+		Double total = 0.0;
+		Double quantidadeDeItens = 0.0;
+		List<OrdemColeta> ocs = repositorio.findByMotoristaAndDataBetween(new MotoristaId("997"), new Date(2015, 9, 1), new Date(2015, 9, 22));
+		for (OrdemColeta ordemColeta : ocs) {
+			total += ordemColeta.getValorUnitario() * ordemColeta.getQuantidade();
+			quantidadeDeItens += ordemColeta.getQuantidade();
+		}
+		assertEquals(0,total.compareTo(15.0));
+		assertEquals(0,quantidadeDeItens.compareTo(1.0));
+	}
 
 	@Test
 	public void buscarPeloId() {

@@ -102,7 +102,7 @@ public class FechamentoTest {
 		for (OrdemColeta ordemColeta : ordensDeColetas) {
 			totalOrdens += ordemColeta.getQuantidade() * ordemColeta.getValorUnitario();
 		}
-		assertEquals(0, totalOrdens.compareTo(37.0));
+		assertEquals(0, totalOrdens.compareTo(22.0));
 	}
 	
 	@Test
@@ -121,9 +121,29 @@ public class FechamentoTest {
 			totalDespesa += despesa.getQuantidade() * despesa.getValor();
 		}
 		total = totalOrdens - totalDespesa;
-		//37 - 4.5
-		assertEquals(0, total.toString());
+		//22 - 4.5
+		assertEquals(0, total.compareTo(17.5));
 		
+	}
+	
+	@Test
+	public void realizarFechamentoDoMotoristaPorData() {
+		Double totalOrdens = 0.0;
+		Double totalDespesa = 0.0;
+		Double total = 0.0;
+		
+		List<OrdemColeta> ordensDeColetas = repositorio.findByMotoristaAndDataBetween(new MotoristaId("999"), new Date(2015,8,1), new Date(2015,8,31));
+		for (OrdemColeta ordemColeta : ordensDeColetas) {
+			totalOrdens += ordemColeta.getQuantidade() * ordemColeta.getValorUnitario();
+		}
+		
+		List<Despesa> despesas = repoDespesa.findByMotoristaAndDataBetween(new MotoristaId("999"), new Date(2015,8,1), new Date(2015,8,31));
+		for (Despesa despesa : despesas) {
+			totalDespesa += despesa.getQuantidade() * despesa.getValor();
+		}
+		total = totalOrdens - totalDespesa;
+		//22 - 3
+		assertEquals(0, total.compareTo(19.0));
 	}
 
 }

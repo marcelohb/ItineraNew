@@ -15,4 +15,6 @@ public interface OrdemColetaRepositorio extends CrudRepository<OrdemColeta, Long
 
 	OrdemColeta findByOrdemColetaId(OrdemColetaId ordemColetaId);
 
+	List<OrdemColeta> findByMotoristaAndDataBetween(MotoristaId motorista, Date dataInicial, Date dataFinal);
+
 }

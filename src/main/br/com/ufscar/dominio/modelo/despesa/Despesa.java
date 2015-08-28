@@ -22,7 +22,7 @@ public class Despesa {
 	private BigDecimal numeroDoDocumento;
 	private Date data;
 	@Embedded
-	private MotoristaId motoristaId;
+	private MotoristaId motorista;
 	@Embedded
 	private PlanoDeContasId planoDeContasId;
 	private String local;
@@ -35,7 +35,7 @@ public class Despesa {
 		this.despesaId = despesaId;
 		this.numeroDoDocumento = numero;
 		this.data = data;
-		this.motoristaId = motorista;
+		this.motorista = motorista;
 		this.planoDeContasId = planoContasId;
 		this.local = local;
 		this.valor = valor;
@@ -77,12 +77,12 @@ public class Despesa {
 		this.data = data;
 	}
 
-	public MotoristaId getMotoristaId() {
-		return motoristaId;
+	public MotoristaId getMotorista() {
+		return motorista;
 	}
 
-	public void setMotoristaId(MotoristaId motoristaId) {
-		this.motoristaId = motoristaId;
+	public void setMotorista(MotoristaId motoristaId) {
+		this.motorista = motoristaId;
 	}
 
 	public PlanoDeContasId getPlanoDeContasId() {
