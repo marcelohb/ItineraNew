@@ -6,7 +6,7 @@
 Ext.define('ItineraJS.Application', {
     extend: 'Ext.app.Application',
     
-    name: 'ItineraJS',
+    name: 'Itinera',
 
     stores: [
         // TODO: add global / shared stores here

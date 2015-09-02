@@ -3,7 +3,8 @@ Ext.define('ItineraJS.view.main.Main', {
     requires: [
         'ItineraJS.view.main.MainController',
         'ItineraJS.view.main.MainModel',
-        'ItineraJS.view.lista.Lista'
+        'ItineraJS.view.lista.Lista',
+        'ItineraJS.view.categoriaVeiculo.CategoriaVeiculo'
     ],
 
     xtype: 'app-main',
@@ -36,7 +37,11 @@ Ext.define('ItineraJS.view.main.Main', {
         items:[{
             title: 'Categoria Veículo',
             xtype: 'lista',
-            title: 'aqui tem um grid'
+            title: 'Categoria de Veículo'
+        },{
+            // title: 'Categoria Veículo',
+            xtype: 'categoriaVeiculo',
+            title: 'Veículo' 
         }]
     }]
 });

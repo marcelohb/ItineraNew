@@ -10,7 +10,7 @@ Ext.define('ItineraJS.view.lista.ListaModel', {
 			proxy: {
 				type: 'ajax',
 				url: 'categoriaVeiculo',
-				timeout: 50000,
+				// timeout: 50000,
 				reader: {
 					type: 'json'
 					// ,
