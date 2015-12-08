@@ -35,15 +35,15 @@ public class VeiculoRepositorioTest {
 	
 	@Before
 	public void setUp() {
-		repositorio.save(new Veiculo(new Placa("AAA1122")));
-		repositorio.save(new Veiculo(new Placa("BBB1122")));
-		repositorio.save(new Veiculo(new Placa("CCC1122")));
+		repositorio.save(new Veiculo(new VeiculoId("111"), new Placa("AAA1122")));
+		repositorio.save(new Veiculo(new VeiculoId("222"), new Placa("BBB1122")));
+		repositorio.save(new Veiculo(new VeiculoId("333"), new Placa("CCC1122")));
 		categoriaCaminhao = repositorioCategoriaVeiculo.save(new CategoriaVeiculo(new CategoriaVeiculoId("1"), "CAMINHAO", 'T'));
 	}
 	
 	@Test
 	public void salvar() {
-		Veiculo caminhao01 = repositorio.save(new Veiculo(new Placa("AAA1122")));
+		Veiculo caminhao01 = repositorio.save(new Veiculo(new VeiculoId("11"), new Placa("AAA1122")));
 		assertEquals("AAA-1122",caminhao01.getPlaca().placaFormatada());
 	}
 	
@@ -66,7 +66,7 @@ public class VeiculoRepositorioTest {
 	
 	@Test
 	public void igualdeDeVeiculos() {
-		Veiculo caminhao = repositorio.save(new Veiculo(new Placa("BBB9999"), categoriaCaminhao, "VW", "VW999", TipoCombustivel.BIO_DIESEL, new Double(2.5), new Double(4.97), new Double(29.9), new Double(15000), 7));
+		Veiculo caminhao = repositorio.save(new Veiculo(new Placa("BBB9999"), "1", new CategoriaVeiculoId("1"), "VW", "VW999", TipoCombustivel.BIO_DIESEL, new Double(2.5), new Double(4.97), new Double(29.9), new Double(15000), 7));
 		assertEquals(new Placa("BBB9999"), caminhao.getPlaca());
 //		assertEquals(categoriaCaminhao, caminhao.get);
 	}

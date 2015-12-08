@@ -10,13 +10,12 @@ public class Placa {
 	
 	private String placa;
 	
-	private Placa() {
-	}
-	
 	public Placa(String placa) {
 		this.placa = placa.toUpperCase();
 		validar();
 	}
+	
+	private Placa() {}
 
 	private void validar() {
 		Pattern padrao = Pattern.compile("[A-Z]{3,3}\\d{4,4}");

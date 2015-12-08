@@ -24,7 +24,7 @@ Ext.define('ItineraJS.view.main.Main', {
             title: '{name}'
         },
         region: 'west',
-        html: '<ul><li>This area is commonly used for navigation, for example, using a "tree" component.</li></ul>',
+        html: '<ul><li>M E N U</li></ul>',
         width: 250,
         split: true,
         tbar: [{

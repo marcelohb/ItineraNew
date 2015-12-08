@@ -21,6 +21,8 @@ public class Veiculo {
 
 	@Embedded
 	protected Placa placa;
+	
+	private String numero;
 
 	private String marca;
 
@@ -46,15 +48,18 @@ public class Veiculo {
 	@Embedded
 	private CategoriaVeiculoId categoriaVeiculoId;
 
+	private VeiculoId veiculoId;
+
 	public Veiculo() {
 	}
 
-	public Veiculo(Placa placa, CategoriaVeiculo categoriaVeiculo,
+	public Veiculo(Placa placa, String numero, CategoriaVeiculoId categoriaVeiculoId,
 			String marca, String modelo, TipoCombustivel tipoCombustivel,
 			Double altura, Double largura, Double comprimento,
 			Double pesoBruto, Integer eixos) {
 		this.placa = placa;
-//		this.categoriaVeiculo = categoriaVeiculo;
+		this.numero = numero;
+		this.categoriaVeiculoId = categoriaVeiculoId;
 		this.marca = marca;
 		this.modelo = modelo;
 		this.tipoCombustivel = tipoCombustivel;
@@ -73,12 +78,21 @@ public class Veiculo {
 		this.id = id;
 	}
 
-	public Veiculo(Placa placa) {
+	public Veiculo(VeiculoId veiculoId, Placa placa) {
+		this.veiculoId = veiculoId;
 		this.placa = placa;
 	}
 
 	public Placa getPlaca() {
 		return placa;
+	}
+	
+	public void setNumero(String numero) {
+		this.numero = numero;
+	}
+	
+	public String getNumero() {
+		return numero;
 	}
 
 	public void setPlaca(Placa placa) {
